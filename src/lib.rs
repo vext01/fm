@@ -607,6 +607,9 @@ mod tests {
         assert!(helper("$1, $1, a", "a, a, a"));
         assert!(!helper("$1, $1, a", "a, a, b"));
         assert!(!helper("$1, $1, a", "a, b, a"));
+
+        assert!(helper("a\n...\nc", "a\nb\nc"));    // PASSES
+        assert!(helper("$1\n...\n$3", "a\nb\nc"));  // FAILS
     }
 
     #[test]
